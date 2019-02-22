@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>webservice-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>webservice-ear</name>
+	
+	<parent>
+	   <groupId>com.webserviceapp.webservice</groupId>
+	   <version>1.0</version>
+	   <artifactId>WebServiceapp</artifactId>
+	</parent>
+
+	<dependencies>
+		<dependency>
+	     		<groupId>com.webserviceapp.webservice</groupId>
+	     		<artifactId>webservice-war</artifactId>
+	     		<version>${project.version}</version>
+			<type>war</type>
+		<dependency>
+	   	<dependency>
+	     		<groupId>org.json</groupId>
+	     		<artifactId>json_simple</artifactId>
+	     		<version>1.1</version>
+	   	</dependency>
+		<dependency>
+	     		<groupId>com.webserviceapp.webservice</groupId>
+	     		<artifactId>webservice-jee-5-dependencies</artifactId>
+	     		<version>${project.version}</version>
+			<type>pom</type>
+		<dependency>
+	</dependencies>
+
+
+	<build>
+	   <plugins>
+		<plugin>
+		   <artifactId>maven-ear-plugin</artifactId>
+		   <configuration>
+			<version>5</version>
+			<defaultLibBundleDir>lib/</defalutLibBundleDir>
+			<modules>
+				<webModule>
+	     				<groupId>com.webserviceapp.webservice</groupId>
+	     				<artifactId>webservice-war</artifactId>
+					<contextRoot>/webservice-service</contextRoot>
+				</webModule>
+			</modules>
+		   </configuration>
+		</plugin>
+	   </plugins>
+	</build>
+</project>

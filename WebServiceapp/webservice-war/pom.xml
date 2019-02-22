@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>webservice-war</artifactId>
+	<packaging>war</packaging>
+	<name>webservice-war</name>
+	
+	<parent>
+	   <groupId>com.webserviceapp.webservice</groupId>
+	   <version>1.0</version>
+	   <artifactId>WebServiceapp</artifactId>
+	</parent>
+
+	<dependencies>
+	   <dependency>
+	     <groupId>org.json</groupId>
+	     <artifactId>json_simple</artifactId>
+	     <version>1.1</version>
+	   </dependency>
+	</dependencies>
+
+
+	<build>
+	   <!--<filters>
+		<filter>src/main/filters/filter-env-${env}.properties</filter>
+	   </filters>-->
+	   <resources>
+		<resource>
+		   <directory>src/main/resources</directory>
+		   <filtering>true</filtering>
+		</resource>   
+	   </resources>
+	   <testResources>
+		<testResource>
+		   <directory>src/test/resources</directory>
+		   <filtering>true</filtering>
+		</testResource>   
+	   </testResources>
+	   <plugins>
+		<plugin>
+		   <artifactId>maven-war-plugin</artifactId>
+		   <configuration>
+			<packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes>
+			<archive>
+				<manifest>
+					<addClasspath>true</addClasspath>
+					<classpathPrefix>lib/</classpathPrefix>
+				</manifest>
+			</archive>
+		   </configuration>
+		</plugin>
+	   </plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>unittest</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>unit-tests</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+	     				<groupId>com.sun.jersey</groupId>
+	     				<artifactId>jersey-server</artifactId>
+	     				<version>1.9</version>
+					<scope>provided</scope>
+				<dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>vdi</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>vdi</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+	     				<groupId>com.webserviceapp.webservice</groupId>
+	     				<artifactId>webservice-jee-5-dependencies</artifactId>
+	     				<version>${project.version}</version>
+					<type>pom</type>
+				<dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+</project>

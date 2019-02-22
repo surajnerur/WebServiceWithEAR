@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.webserviceapp.webservice</groupId>
+	<artifactId>webservice-jee-5-dependencies</artifactId>
+	<packaging>pom</packaging>
+	<name>webservice-jee-5-dependencies</name>
+	
+	<parent>
+	   <groupId>com.webserviceapp.webservice</groupId>
+	   <version>1.0</version>
+	   <artifactId>WebServiceapp</artifactId>
+	</parent>
+
+	<properties>
+		<jersey.version>1.9</jersey.version>
+		<jackson.version>1.8.3</jackson.version>
+		<!--<javaee-api.version>5.0-3</javaee-api.version>-->
+	</properties>
+	<dependencies>
+		<!--<dependency>
+	     		<groupId>org.apache.openejb</groupId>
+	     		<artifactId>javaee-api</artifactId>
+	     		<version>${javaee-api.version}</version>
+		<dependency>-->
+	   	<dependency>
+	     		<groupId>com.sun.jersey</groupId>
+	     		<artifactId>jersey-core</artifactId>
+	     		<version>${jersey.version}</version>
+	   	</dependency>
+	   	<dependency>
+	     		<groupId>com.sun.jersey</groupId>
+	     		<artifactId>jersey-server</artifactId>
+	     		<version>${jersey.version}</version>
+	   	</dependency>
+	   	<!--<dependency>
+	     		<groupId>com.sun.jersey</groupId>
+	     		<artifactId>jersey-servlet</artifactId>
+	     		<version>${jersey.version}</version>
+	   	</dependency>-->
+	   	<dependency>
+	     		<groupId>com.sun.jersey</groupId>
+	     		<artifactId>jersey-json</artifactId>
+	     		<version>${jersey.version}</version>
+	   	</dependency>
+	   	<dependency>
+	     		<groupId>org.codehaus.jackson</groupId>
+	     		<artifactId>jackson-jaxrs</artifactId>
+	     		<version>${jackson.version}</version>
+	   	</dependency>
+	   	<dependency>
+	     		<groupId>org.codehaus.jackson</groupId>
+	     		<artifactId>jackson-xc</artifactId>
+	     		<version>${jackson.version}</version>
+	   	</dependency>
+	   	<dependency>
+	     		<groupId>org.codehaus.jackson</groupId>
+	     		<artifactId>jackson-mapper-asl</artifactId>
+	     		<version>${jackson.version}</version>
+	   	</dependency>
+	   	<dependency>
+	     		<groupId>org.codehaus.jackson</groupId>
+	     		<artifactId>jackson-core-asl</artifactId>
+	     		<version>${jackson.version}</version>
+	   	</dependency>
+	</dependencies>
+
+	<build>
+	</build>
+
+</project>
